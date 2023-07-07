@@ -50,8 +50,8 @@ Make sure you have the following software installed on your machine:
 
 Clone the repository:
 ```bash
-git clone https://github.com/your-username/video-player-website.git
-cd video-player-website
+git clone https://github.com/ayarvind/Stack-Player.git
+cd Stack-Player
 npm install
 ```
 
