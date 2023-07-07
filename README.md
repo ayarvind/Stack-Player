@@ -1,4 +1,5 @@
-# Video Player Website
+# Stack Player
+**A video player WebApp.
 
 ![Video Player Website](video-player2.png)
 
@@ -85,7 +86,7 @@ To start the development server and run the project locally, use the following c
 
 This will start the development server and provide you with a local URL where you can access the video player website in your browser.
 
-Open your browser and visit the following URL: http://localhost:3000.
+Open your browser and visit the following URL: http://localhost:5173.
 
 You should now see the video player website and can start exploring its features.
 
