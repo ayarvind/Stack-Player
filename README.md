@@ -1,6 +1,6 @@
 # Video Player Website
 
-![Video Player Website](video-player.png)
+![Video Player Website](video-player2.png)
 
 This is a powerful and feature-rich video player website built using React.js, Redux.js, and Firebase. The video player is designed to play local system videos and has the potential to expand its capabilities to play videos from both local and internet sources.
 
@@ -15,16 +15,19 @@ This is a powerful and feature-rich video player website built using React.js, R
 - **Support for Various Video Formats:** The video player is designed to handle any type of video format, ensuring compatibility and seamless playback for a wide range of media files.
 
 - **Flexible Playback Options:** In the future, the video player aims to introduce additional playback options, such as preferred video quality and playback speed, similar to popular video platforms like YouTube.
+- 
+![Video Player Website](video-player1.png)
 
 - **Drag and Drop Multiple Files:** Users can effortlessly drag and drop multiple video files onto the player, allowing for convenient playback of a playlist or queue of videos, playing them sequentially.Additionally, shortcut buttons is  implemented to play the next and previous videos in the list.
 
 - **Video Filtering and Search:** A future development plan for the video player includes the ability to filter and search through the list of videos, providing efficient video management and organization. 
 
+
 ## Bugs and Future Improvements
 
 Currently, the video player may have some minor bugs that are being actively addressed. I am committed to continuously improving the player's performance and stability to provide the best user experience possible.
 
-
+![Video Player Website](video-player3.png)
 
 Enjoy seamless video playback with our feature-rich video player website!
 
