@@ -49,5 +49,41 @@ Clone the repository:
 git clone https://github.com/your-username/video-player-website.git
 cd video-player-website
 npm install
+```
+
+
+
+## Configuration
+
+Before running the project, you need to configure your Firebase credentials. Follow these steps:
+
+1. Create a new Firebase project at [https://console.firebase.google.com/](https://console.firebase.google.com/).
+
+2. Obtain your Firebase configuration credentials.
+
+3. Open the `.env.local` file in the project root directory.
+
+4. Update the placeholder values with your Firebase configuration credentials:
+
+   ```env
+   REACT_APP_FIREBASE_API_KEY=YOUR_API_KEY
+   REACT_APP_FIREBASE_AUTH_DOMAIN=YOUR_AUTH_DOMAIN
+   REACT_APP_FIREBASE_PROJECT_ID=YOUR_PROJECT_ID
+   REACT_APP_FIREBASE_STORAGE_BUCKET=YOUR_STORAGE_BUCKET
+   REACT_APP_FIREBASE_MESSAGING_SENDER_ID=YOUR_SENDER_ID
+   REACT_APP_FIREBASE_APP_ID=YOUR_APP_ID
+    ```
+##Running the Project
+To start the development server and run the project locally, use the following command:
+
+```bash
+    npm run dev
+```
+
+This will start the development server and provide you with a local URL where you can access the video player website in your browser.
+
+Open your browser and visit the following URL: http://localhost:3000.
+
+You should now see the video player website and can start exploring its features.
 
 
