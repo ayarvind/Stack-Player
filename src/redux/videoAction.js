@@ -18,3 +18,9 @@ export const setVideoIndex = (number) => {
     payload: (number<0)?0:number,
   };
 };
+export const setIsVideoSelected = (val) => {
+  return {
+    type: 'SET_IS_VIDEO_BUTTON',
+    payload:val,
+  };
+};

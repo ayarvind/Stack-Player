@@ -3,7 +3,7 @@ const initialState = {
   videoUrl: null,
   videoCollectionUrl: [],
   videoNumber:0,
-
+  isVideoSelected:false,
 };
 
 const videoReducer = (state = initialState, action) => {
@@ -23,6 +23,11 @@ const videoReducer = (state = initialState, action) => {
           ...state,
           videoNumber:action.payload
         };
+    case 'SET_IS_VIDEO_BUTTON':
+      return{
+        ...state,
+        isVideoSelected:action.payload
+      };
         
     default:
       return state;

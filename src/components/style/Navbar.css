@@ -28,4 +28,28 @@
   .nav-link:last-child {
     margin-right: 0;
   }
-  
+  .dropdown{
+    position: absolute;
+    background-color: aliceblue;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+   right:10px;
+   top:60px; 
+  }
+  .dropdown ul{
+    list-style-type: none;
+
+  }
+  .dropdown ul li{
+    padding: 5px 5px;
+    margin-left:-40px;
+  }
+
+  .dropdown ul li button{
+    border:none;
+    outline:none;
+    background-color: aliceblue;
+    cursor: pointer;
+    display: block;
+    padding: 4px 4px;
+  }
