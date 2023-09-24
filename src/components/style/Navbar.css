@@ -1,55 +1,86 @@
+/* Navbar.css */
+
+/* Top Navbar */
 .top-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: aliceblue;
-    /* box-shadow: 0px 0px 9px 0px rgb(231, 231, 233); */
-    border-bottom:1px solid #ddd;
-    color: #222121;
-    padding: 12px;
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight:bold;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  .nav-links {
-    list-style-type: none;
-    display: flex;
-  }
-  
-  .nav-link {
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  
-  .nav-link:last-child {
-    margin-right: 0;
-  }
-  .dropdown{
-    position: absolute;
-    background-color: aliceblue;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-   right:10px;
-   top:60px; 
-  }
-  .dropdown ul{
-    list-style-type: none;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
 
-  }
-  .dropdown ul li{
-    padding: 5px 5px;
-    margin-left:-40px;
-  }
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
 
-  .dropdown ul li button{
-    border:none;
-    outline:none;
-    background-color: aliceblue;
-    cursor: pointer;
-    display: block;
-    padding: 4px 4px;
-  }
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link span {
+  margin-right: 10px;
+}
+
+.nav-link button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link button:hover {
+  background-color: #0056b3;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: absolute;
+  top: cal(100%-15px);
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+.dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown li {
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+.dropdown li button{
+  display: block;
+  text-decoration: none;
+}
+.dropdown li:hover {
+  background-color: #f0f0f0;
+}
+ a{
+  text-decoration: none;
+}
+.dropdown button {
+  background-color: transparent;
+  color: #007bff;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown button:hover {
+  text-decoration: underline;
+}
