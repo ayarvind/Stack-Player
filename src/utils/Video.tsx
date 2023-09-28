@@ -5,6 +5,8 @@ import expand from '../assets/expand.png'
 import play from '../assets/play.png'
 import pause from '../assets/pause.png'
 import option from '../assets/option.png'
+import prevAndNext from '../assets/prev.png'
+// import RightOption from './RightOption';
 interface VideoProps {
   source: string;
   title: string;
@@ -35,8 +37,6 @@ const Video: React.FC<VideoProps> = ({
   const [isMenu, setIsMenu] = useState(false);
   const [isShowControls, setIsShowControls] = useState(true);
   const [fill, setFill] = useState(false);
-  const [playBackMenu, setPlayBackMenu] = useState(false);
-  const [isSubMenu, setIsSubMenu] = useState(false);
   const [playBackSpeedValue, setPlayBackSpeedValue] = useState(1);
   const [msg, setMsg] = useState('')
   const togglePlay = () => {
@@ -51,7 +51,7 @@ const Video: React.FC<VideoProps> = ({
   const handleParentClick = () => {
 
     isMenu && setIsMenu(false);
-    isSubMenu && setIsSubMenu(false);
+
 
   }
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,37 +62,40 @@ const Video: React.FC<VideoProps> = ({
       videoRef.current.currentTime = newTime;
     }
   };
-  const SubMenu = () => (
-    <div className='playback-list'>
-      <ul>
-        <li onClick={() => setPlayBackSpeedValue(0.75)}><span>0.7x</span></li>
-        <li onClick={() => setPlayBackSpeedValue(0.5)}><span>0.5x</span></li>
-        <li onClick={() => setPlayBackSpeedValue(0.25)}><span>0.25x</span></li>
-        <li onClick={() => setPlayBackSpeedValue(1)}><span>Normal</span></li>
-        <li onClick={() => setPlayBackSpeedValue(1.5)}><span>1.25x</span></li>
-        <li onClick={() => setPlayBackSpeedValue(1.5)}><span>1.5x</span></li>
-        <li onClick={() => setPlayBackSpeedValue(1.75)}><span>1.75x</span></li>
-        <li onClick={() => setPlayBackSpeedValue(2)}><span>2x</span></li>
 
-
-      </ul>
-    </div>
-  )
-  console.log("--playback ", playBackMenu)
-  console.log("submenu --", isSubMenu)
 
   const Menu = () => {
     return (
       <>
         <div className='video-menu'>
           <ul>
-            <li> <button onClick={() => setFill((prevState: boolean) => !prevState)}>{fill ? 'Cover screen' : 'Default width'}</button></li>
-            <li> <button onClick={() => setPlayBackMenu((prevState: boolean) => !prevState)}>Playback speed</button></li>
+            <li> <button onClick={() => {
+              if (!isPlaying) {
+                setFill((prevState) => !prevState);
+                setMsg('Screen Covered');
+              }
+              else {
+                togglePlay();
+                setIsPlaying(true);
+                setFill((prevState) => !prevState);
+                setMsg('Screen Uncovered');
+              }
+
+            }}>{!fill ? 'Cover screen' : 'Uncover screen'}</button></li>
+            <li> <button onClick={() => setIsMenu(false)}>Playback speed</button></li>
 
 
             <li> <button>Caption</button></li>
             <li> <button>Quality</button></li>
-            <li> <button>Picture in picture</button></li>
+            <li> <button onClick={()=>{
+              if(videoRef.current){
+               if(document.pictureInPictureElement){
+                  document.exitPictureInPicture();
+               }else{
+                  videoRef.current.requestPictureInPicture();
+               }
+              }
+            }}>Picture in picture</button></li>
             <li> <button>Setting</button></li>
           </ul>
         </div>
@@ -106,15 +109,14 @@ const Video: React.FC<VideoProps> = ({
 
     if (isFullScreen) {
       parentRef.current?.classList.add('fullscreen');
+      setMsg('Entered in fullscreen')
     } else {
       parentRef.current?.classList.remove('fullscreen');
+      setMsg('Exit fullscreen')
     }
     setIsFullScreen(!isFullScreen);
   };
-  useEffect(() => {
-    const submenu = playBackMenu;
-    setIsSubMenu(submenu);
-  }, [playBackMenu])
+
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
@@ -125,10 +127,10 @@ const Video: React.FC<VideoProps> = ({
       if (event.key === 'm') {
         if (videoRef.current) {
           videoRef.current.muted = !videoRef.current.muted;
-          if(videoRef.current.muted){
+          if (videoRef.current.muted) {
             setMsg('Muted')
-          }else{
-            setMsg('')
+          } else {
+            setMsg('Unmuted')
           }
         }
       }
@@ -146,35 +148,21 @@ const Video: React.FC<VideoProps> = ({
       if (event.key === '+') {
         if (videoRef.current && videoRef.current.playbackRate < 2) {
           videoRef.current.playbackRate += 0.25;
-          setMsg('Playback: ' + videoRef.current.playbackRate +  'x')
-        }
-      }
-      //playback speed when press - button
-      if (videoRef.current && videoRef.current.playbackRate > 0.25) {
-        if (videoRef.current) {
-          videoRef.current.playbackRate -= 0.25;
-          setMsg('Playback: ' + videoRef.current.playbackRate +  'x')
-        }
-      }
-      //playback speed when press 0 button
-      if (event.key === '0') {
-        if (videoRef.current) {
-          videoRef.current.playbackRate = 0.5;
-          setMsg('Playback: ' + videoRef.current.playbackRate +  'x')
+          setMsg('Playback: ' + videoRef.current.playbackRate + 'x')
         }
       }
       //playback speed when press 1 button
       if (event.key === '1') {
         if (videoRef.current) {
           videoRef.current.playbackRate = 1;
-          setMsg('Playback: ' + videoRef.current.playbackRate +  'x')
+          setMsg('Playback: ' + videoRef.current.playbackRate + 'x')
         }
       }
       //playback speed when press 2 button
       if (event.key === '2') {
         if (videoRef.current) {
           videoRef.current.playbackRate = 2;
-          setMsg('Playback: ' + videoRef.current.playbackRate +  'x')
+          setMsg('Playback: ' + videoRef.current.playbackRate + 'x')
 
         }
       }
@@ -182,19 +170,21 @@ const Video: React.FC<VideoProps> = ({
       if (event.key === 'ArrowUp') {
         if (videoRef.current) {
           videoRef.current.volume += 0.1;
-          setMsg('Voulme ' + videoRef.current.volume +  '%');
+          setMsg('Voulme ' + Math.floor(videoRef.current.volume * 100) + '%');
+
         }
       }
       if (event.key === 'ArrowDown') {
         if (videoRef.current) {
           videoRef.current.volume -= 0.1;
-          setMsg('Voulme ' + videoRef.current.volume +  '%');
+          setMsg('Voulme ' + Math.floor(videoRef.current.volume * 100) + '%');
         }
       }
       //seek forward and backward on pressing right key and left key
       if (event.key === 'ArrowRight') {
         if (videoRef.current) {
           videoRef.current.currentTime += 5;
+
 
         }
       }
@@ -203,21 +193,48 @@ const Video: React.FC<VideoProps> = ({
           videoRef.current.currentTime -= 5;
         }
       }
+     //change setFill state when shift and arrow left is pressed;
+     if(event.key==='s'){
+       setFill((prevState)=>!prevState);
+     }
+    if(event.key ==='r'){
+      setMsg('Reset')
+      setFill(false);
+      setPlayBackSpeedValue(1);
+      setSliderValue(0);
+      videoRef.current?.pause();
+      setIsPlaying(false);
+      videoRef.current?.load();
+    }
+    //toggle picture in picture when press shift and p button 
+     if(event.key==='p'){
+       if(document.pictureInPictureElement){
+        document.exitPictureInPicture();
 
+       }else{
+          videoRef.current?.requestPictureInPicture();
+       }
+     }
+     
+    
     };
 
     const interval = setTimeout(() => {
       setIsShowControls(false);
-      setMsg('');
     }, 4000);
+    const interval1 = setTimeout(() => {
+      setMsg('');
+    }, 2000)
 
     document.addEventListener('keydown', handleKeyPress);
 
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
       clearTimeout(interval);
+      clearTimeout(interval1);
+
     };
-  }, [isFullScreen]);
+  }, [isFullScreen, msg]);
 
 
   const handlePlayBackSpeed = (playBackSpeed: number) => {
@@ -242,7 +259,17 @@ const Video: React.FC<VideoProps> = ({
   };
 
   return (
-    <div onMouseEnter={() => setIsShowControls(true)} onMouseLeave={() => setIsShowControls(false)} ref={parentRef} className={`video-player-container ${className}`}>
+    <div onClick={() => {
+      if (videoRef.current && isMenu) {
+        if (videoRef.current.paused) {
+          videoRef.current.play();
+          setIsPlaying(true);
+        } else {
+          videoRef.current.pause();
+          setIsPlaying(false);
+        }
+      }
+    }} onMouseEnter={() => setIsShowControls(true)} onMouseLeave={() => setIsShowControls(false)} ref={parentRef} className={`video-player-container ${className}`}>
       <video
 
         style={{
@@ -277,6 +304,18 @@ const Video: React.FC<VideoProps> = ({
 
         isShowControls && (
           <div onClick={handleParentClick} className="video-overlay">
+
+
+            <div className="video_next">
+              <div className="top">
+                <div className="brand">
+                  <h2>Stack Player</h2>
+                  <h5>{title}</h5>
+                </div>
+              </div>
+         
+            </div>
+
             <div className="controls">
               <button onClick={() => {
                 togglePlay()
@@ -305,20 +344,15 @@ const Video: React.FC<VideoProps> = ({
               </button>
               <button onClick={() => {
                 setIsMenu((prevState) => !prevState)
-                if (isMenu) {
-                  setIsSubMenu(false)
-                }
+                videoRef.current?.pause();
+                setIsPlaying(false);
               }}>
                 <img src={option} />
               </button>
             </div>
-            {isMenu && <Menu />}
+            {(isMenu) && <Menu />}
 
-            {isSubMenu && <SubMenu />}
-            <div className="video-details">
-              <h2>{title}</h2>
-              <p>{description}</p>
-            </div>
+
           </div>
         )
       }

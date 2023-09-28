@@ -59,6 +59,7 @@
     position: relative;
     margin: 0 10px;
     border-radius: 5px;
+
   }
   
   .progress {
@@ -155,7 +156,7 @@
     color:white;
     
   }
-  .video-menu ul button:hover{
+  .video-menu ul button:hover, .video-menu ul button:focus{
     background-color: rgba(255, 255, 255, 0.2);
     color:white;
     text-decoration: none;
@@ -212,3 +213,22 @@
     justify-content: center;
     text-align: center;
   }
+.video_next{
+  background: transparent;
+  padding: 20px 20px;
+  left:0px;
+  right:0px; 
+  top:0px;
+  width:100%;
+  height: cal(100% - 40px);
+  left:0px;
+  right:0px;
+  position: absolute;
+}
+.video_next .top h5{
+  margin: 0px;
+  color: rgb(5, 162, 160);
+}
+.video_next:hover{
+  background: rgba(0, 0, 0, 0.536);
+}

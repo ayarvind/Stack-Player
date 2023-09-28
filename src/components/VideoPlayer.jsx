@@ -115,13 +115,9 @@ function VideoPlayer() {
     <>
       {videoUrl ? (
         <div className="videoPlayer">
-          {newVideo ? <div> <h1 style={{ color: 'gray' }}>Playing Next Video.... </h1></div> : <Video ref={videoRef} className="" source={videoUrl} controls={true} autoPlay={false} mute={false} />}
+          {newVideo ? <div> <h1 style={{ color: 'gray' }}>Playing Next Video.... </h1></div> : <Video title= {videoCollection[videoNumber].name} ref={videoRef} className="" source={videoUrl} controls={true} autoPlay={false} mute={false} />}
           <br />
-          <div>
-            <h2 style={{ color: "#333", fontSize: "18px" }}>
-              {videoCollection[videoNumber].name.split(".")[0]}
-            </h2>
-          </div>
+        
         </div>
       ) : null}
     </>
