@@ -4,7 +4,7 @@ function Test(){
   return(
     <>
       <Video
-        source='file:///C:/Users/HP/Downloads/SampleVideo_1280x720_1mb.mp4'
+        source=""
         className = 'video-5'
         playBackSpeed={1.5}
        

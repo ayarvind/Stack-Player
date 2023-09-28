@@ -4,8 +4,9 @@ import { useDispatch } from "react-redux";
 import { setVideoUrl, setVideoIndex } from "../redux/videoAction";
 
 import "./style/VideoLayer.css";
+import Video from "../utils/Video";
 function VideoPlayer() {
-  const [newVideo,setNewVideo] = useState(false);
+  const [newVideo, setNewVideo] = useState(false);
   // const [counter,setCounter] = useState(1);
   const videoUrl = useSelector((state) => state.videoUrl);
   const videoRef = useRef(null);
@@ -25,17 +26,17 @@ function VideoPlayer() {
         dispatch(setVideoUrl(videoCollection[0].url));
       }
     };
-    
+
     try {
       if (videoRef.current.ended()) {
 
-       
-          setNewVideo(true);
-          nextVideo();
-          // clearInterval(interval);
+
+        setNewVideo(true);
+        nextVideo();
+        // clearInterval(interval);
       }
     } catch (error) {
-        console.log('Video is not selected')
+      console.log('Video is not selected')
     }
 
     const handleKeyDown = (event) => {
@@ -114,7 +115,7 @@ function VideoPlayer() {
     <>
       {videoUrl ? (
         <div className="videoPlayer">
-          {newVideo?<div> <h1 style={{color:'gray'}}>Playing Next Video.... </h1></div>:<video ref={videoRef} className="" src={videoUrl} controls autoPlay />}
+          {newVideo ? <div> <h1 style={{ color: 'gray' }}>Playing Next Video.... </h1></div> : <Video ref={videoRef} className="" source={videoUrl} controls={true} autoPlay={false} mute={false} />}
           <br />
           <div>
             <h2 style={{ color: "#333", fontSize: "18px" }}>
