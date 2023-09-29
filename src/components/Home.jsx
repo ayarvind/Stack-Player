@@ -5,7 +5,7 @@ import "./style/Home.css";
 import DragAndDrop from "./DragAndDrop";
 import VideoPlayer from "./VideoPlayer";
 import { useSelector } from "react-redux";
-import Welcome from "./welcome";
+import Welcome from "./Welcome";
 function Home() {
   const isVideoSelected = useSelector((state)=>state.isVideoSelected)
   const videoUrl = useSelector((state)=>state.videoUrl);

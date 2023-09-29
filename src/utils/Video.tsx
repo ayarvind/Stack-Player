@@ -5,7 +5,7 @@ import expand from '../assets/expand.png'
 import play from '../assets/play.png'
 import pause from '../assets/pause.png'
 import option from '../assets/option.png'
-import prevAndNext from '../assets/prev.png'
+// import prevAndNext from '../assets/prev.png'
 // import RightOption from './RightOption';
 interface VideoProps {
   source: string;
