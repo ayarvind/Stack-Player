@@ -62,13 +62,7 @@ const DropFileInput = (props) => {
   };
 
   return (
-    <div className='panelX' style={{
-      backgroundColor: '#f9f9f9',
-      display: 'flex',
-      justifyContent: 'center',
-
-
-    }}>
+    <div className='panelX'>
       {videoSelected ? (
         <>
           <VideoPlayer />
@@ -85,7 +79,10 @@ const DropFileInput = (props) => {
             <img src={uploadImg} alt="" />
             <p>Drag & Drop your files here</p>
           </div>
-          <input type="file" value="" multiple onChange={onFileDrop} />
+          <input style={{
+         
+            opacity:'0',
+          }} type="file" value="" multiple onChange={onFileDrop} />
         </div>
       )}
     </div>

@@ -207,7 +207,7 @@ const Video: React.FC<VideoProps> = ({
       videoRef.current?.load();
     }
     //toggle picture in picture when press shift and p button 
-     if(event.key==='p'){
+    if (event.key === 'p'){
        if(document.pictureInPictureElement){
         document.exitPictureInPicture();
 

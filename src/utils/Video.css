@@ -17,7 +17,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.134);
+    /* background-color: rgba(0, 0, 0, 0.134); */
     color: white;
     height:auto;
     top:0px;
@@ -219,7 +219,7 @@
   left:0px;
   right:0px; 
   top:0px;
-  width:100%;
+  width:calc(100% - 40px);
   height: cal(100% - 40px);
   left:0px;
   right:0px;
@@ -228,7 +228,4 @@
 .video_next .top h5{
   margin: 0px;
   color: rgb(5, 162, 160);
-}
-.video_next:hover{
-  background: rgba(0, 0, 0, 0.536);
 }

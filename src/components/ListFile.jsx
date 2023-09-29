@@ -18,10 +18,7 @@ function ListFile({ fileList, fileRemove }) {
       {fileList.length > 0 ? (
         <div className="drop-file-preview">
           <div className="drop-file-preview__title">
-            <font style={{ color: "grey", fontSize: "15px" }}>
-         Video - {videoIndex + 1}/ {fileList.length}
-            </font>
-            <br/>
+          
             <Filter handler = {dispatchAndHandleClick}/>
           </div>
           {fileList.map((item, index) => {
@@ -42,8 +39,8 @@ function ListFile({ fileList, fileRemove }) {
               >
                 <img  src={imageUrl} />
                 <div className="drop-file-preview__item__info">
-                  <p style={{ fontWeight: "bold", fontSize: "13px" }}>{name}</p>
-                  <p style={{ fontWeight: "bold",color:'gray', fontSize: "9px" }}>
+                  <p >{name}</p>
+                  <p>
                     {Math.floor(size/(1024*1024))} Mb
                   </p>
                 </div>

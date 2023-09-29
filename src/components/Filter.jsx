@@ -6,17 +6,11 @@ function Filter() {
             setValue(e.target.value)
   };
   return (
-    <div>
+    <div className="filter">
       <input
         type="search"
         placeholder="Search from list.."
         value = {value}
-        style={{
-          padding: "10px 10px",
-          outline: "none",
-          width: "96%",
-          margin: "auto",
-        }}
         onChange={handleChange}
       />
     </div>

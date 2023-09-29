@@ -10,6 +10,11 @@ function Home() {
   console.log(isVideoSelected);
   return (
     <div className="app-home">
+      <div className="leftSidebar">
+      <div>
+        <DragAndDrop />
+      </div>
+      </div>
       <div className="videoLayer">
        
       {
@@ -21,9 +26,7 @@ function Home() {
       <div>
         
       </div>
-      <div className="centerContent">
-        <DragAndDrop />
-      </div>
+     
     </div>
   );
 }

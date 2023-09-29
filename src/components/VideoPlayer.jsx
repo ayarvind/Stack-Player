@@ -41,49 +41,6 @@ function VideoPlayer() {
 
     const handleKeyDown = (event) => {
       switch (event.code) {
-        case "ArrowLeft":
-          // Forward 10 seconds
-          videoRef.current.currentTime -= 10;
-          break;
-        case "ArrowRight":
-          // Backward 10 seconds
-          videoRef.current.currentTime += 10;
-          break;
-        case "ArrowUp":
-          // Increase volume
-          if (videoRef.current.volume < 1) {
-            videoRef.current.volume += 0.1;
-          }
-          break;
-        case "ArrowDown":
-          // Decrease volume
-          if (videoRef.current.volume > 0) {
-            videoRef.current.volume -= 0.1;
-          }
-          break;
-        case "Space":
-          if (videoRef.current.paused) {
-            videoRef.current.play();
-          } else {
-            videoRef.current.pause();
-          }
-          break;
-        case "KeyK":
-          // Play/Pause
-          if (videoRef.current.paused) {
-            videoRef.current.play();
-          } else {
-            videoRef.current.pause();
-          }
-          break;
-        case "KeyF":
-          // Toggle fullscreen
-          if (document.fullscreenElement) {
-            document.exitFullscreen();
-          } else {
-            videoRef.current.requestFullscreen();
-          }
-          break;
         case "KeyN":
           nextVideo();
 
