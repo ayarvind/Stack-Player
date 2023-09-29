@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setVideoIndex, setVideoUrl } from "../redux/videoAction";
 import Filter from "./Filter";
-
+import notfound from '../assets/notfound.avif'
 function ListFile({ fileList, fileRemove }) {
   const dispatch = useDispatch();
   const videoIndex = useSelector((state) => state.videoNumber);
@@ -18,10 +18,7 @@ function ListFile({ fileList, fileRemove }) {
       {fileList.length > 0 ? (
         <div className="drop-file-preview">
           <div className="drop-file-preview__title">
-            <font style={{ color: "grey", fontSize: "15px" }}>
-         Video - {videoIndex + 1}/ {fileList.length}
-            </font>
-            <br/>
+           
             <Filter handler = {dispatchAndHandleClick}/>
           </div>
           {fileList.map((item, index) => {
@@ -57,7 +54,22 @@ function ListFile({ fileList, fileRemove }) {
             );
           })}
         </div>
-      ) : null}
+      ) : (
+        <div className="drop-file-preview">
+          <img style={{
+              width:'100%',
+              height:'100%'
+        
+          }} src={notfound}/>
+           <div className="notfound">
+           <center>
+              <br/>
+              <h2>Video is not selected</h2>
+            </center>
+          </div>
+        </div>
+      
+      )}
     </div>
   );
 }

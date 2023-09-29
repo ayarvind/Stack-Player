@@ -16,6 +16,7 @@ function Filter() {
           outline: "none",
           width: "96%",
           margin: "auto",
+          border:'none',
         }}
         onChange={handleChange}
       />

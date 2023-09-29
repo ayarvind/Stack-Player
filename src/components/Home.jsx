@@ -5,25 +5,32 @@ import "./style/Home.css";
 import DragAndDrop from "./DragAndDrop";
 import VideoPlayer from "./VideoPlayer";
 import { useSelector } from "react-redux";
+import Welcome from "./welcome";
 function Home() {
   const isVideoSelected = useSelector((state)=>state.isVideoSelected)
-  console.log(isVideoSelected);
+  const videoUrl = useSelector((state)=>state.videoUrl);
+
   return (
     <div className="app-home">
-      <div className="videoLayer">
+       <div className="centerContent" style={{
+        display:(videoUrl && window.screen.width <=768 )?'none':'block',
+       }}>
+        <DragAndDrop />
+      </div>
+      <div className={ isVideoSelected?'videoLayer-home':'home-right' } >
        
       {
-        (isVideoSelected)&&(
+        (isVideoSelected)?(
           <VideoPlayer/>
+        ):(
+          <Welcome/>
         )
       }
       </div>
       <div>
         
       </div>
-      <div className="centerContent">
-        <DragAndDrop />
-      </div>
+     
     </div>
   );
 }

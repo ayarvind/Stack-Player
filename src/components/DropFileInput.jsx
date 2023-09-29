@@ -13,6 +13,10 @@ const DropFileInput = (props) => {
   const [videoSelected, setVideoSelected] = useState(false); // State to track if a video is selected
 
   useEffect(() => {
+    // Set the videoSelected state to true when a video is selected
+    if(videoSelected){
+      dispatch(setIsVideoSelected(true));
+    }
     const handleKeyDown = (event) => {
       if (event.shiftKey && event.code === "KeyO") {
         newRefBtn.current.click();
@@ -24,7 +28,7 @@ const DropFileInput = (props) => {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [videoSelected]);
 
   const onDragEnter = () => wrapperRef.current.classList.add('dragover');
   const onDragLeave = () => wrapperRef.current.classList.remove('dragover');
@@ -42,7 +46,7 @@ const DropFileInput = (props) => {
       setFileList(updatedList);
       updatedList.sort();
       dispatch(setVideoCollection(updatedList));
-      dispatch(setVideoUrl(updatedList[videoIndex].url));
+      // dispatch(setVideoUrl(updatedList[videoIndex].url));
 
       // Set the videoSelected state to true when a video is selected
       setVideoSelected(true);
@@ -62,24 +66,16 @@ const DropFileInput = (props) => {
   };
 
   return (
-    <div className='panelX' style={{
-      backgroundColor: '#f9f9f9',
-      display: 'flex',
-      justifyContent: 'center',
-
-
-    }}>
-      {videoSelected ? (
-        <>
-          <VideoPlayer />
+    <div className='panelX'>
+        
           <div className="listFile">
 
             <ListFile fileList={fileList} fileRemove={fileRemove} />
           </div>
-        </>
+        
 
 
-      ) : (
+      
         <div ref={wrapperRef} className="drop-file-input" onDragEnter={onDragEnter} onDragLeave={onDragLeave} onDrop={onDrop}>
           <div className="drop-file-input__label">
             <img src={uploadImg} alt="" />
@@ -87,7 +83,7 @@ const DropFileInput = (props) => {
           </div>
           <input type="file" value="" multiple onChange={onFileDrop} />
         </div>
-      )}
+      
     </div>
   );
 };
