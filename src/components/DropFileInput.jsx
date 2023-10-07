@@ -46,7 +46,7 @@ const DropFileInput = (props) => {
       setFileList(updatedList);
       updatedList.sort();
       dispatch(setVideoCollection(updatedList));
-      // dispatch(setVideoUrl(updatedList[videoIndex].url));
+      dispatch(setVideoUrl(updatedList[videoIndex].url));
 
       // Set the videoSelected state to true when a video is selected
       setVideoSelected(true);

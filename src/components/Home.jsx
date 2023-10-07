@@ -12,9 +12,7 @@ function Home() {
 
   return (
     <div className="app-home">
-       <div className="centerContent" style={{
-        display:(videoUrl && window.screen.width <=768 )?'none':'block',
-       }}>
+       <div className="centerContent">
         <DragAndDrop />
       </div>
       <div className={ isVideoSelected?'videoLayer-home':'home-right' } >

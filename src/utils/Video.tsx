@@ -117,8 +117,22 @@ const Video: React.FC<VideoProps> = ({
     setIsFullScreen(!isFullScreen);
   };
 
+  useEffect(()=>{
+     const interval = setInterval(()=>{
+      if(videoRef.current){
+        const currentTime = videoRef.current.currentTime;
+        const duration =  videoRef.current.duration;
+        const ratio = (currentTime/duration)*100
+        setSliderValue(ratio);
+      }
+     },100)
 
+     return ()=> {
+      clearInterval(interval)
+     }
+  },[])
   useEffect(() => {
+  
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'f') {
         handleFullScreen();

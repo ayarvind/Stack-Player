@@ -66,17 +66,26 @@
         position: static;
         left: auto;
         right: auto;
-        top: 80px;
         position: relative;
         justify-content: center;
         align-items: center;
-        height: auto;
         border: none;
+        bottom:0px;
+        height:70%;
+        z-index:-1;
+        top:40%;
+        border:2px solid red;
+        
+        /* display: none; */
     }
     .videoLayer-home{
-        height: 100vh;
+        height:auto;
+        min-height:220px;
+        width:100%;
+        overflow:hidden;
         left:0px;
         border: none;
+        top:66px;
         
     }
     
