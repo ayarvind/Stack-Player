@@ -16,7 +16,11 @@ Arvind Yadav
 GitHub: [https://www.github.com/ayarvind](https://www.github.com/ayarvind)
 LinkedIn: [https://www.linkedin.com/in/ayarwind](https://www.linkedin.com/in/ayarwind)
 
+
 ![Video Player Website](video-player2.png) 
+
+![Video Player Website](video-player2.png)
+
 #follow this steps to open view code on your system
 1. Fork this repository
 2. Clone the repository  using `git clone https://github.com/ayarvind/Stack-Player.git`
