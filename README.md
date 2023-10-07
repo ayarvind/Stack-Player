@@ -1,93 +1,28 @@
-# Stack Player
-**A video player WebApp.
+Hello everyone,
+<!-- use image -->
+![Video Player Website](video-player1.png)
+I'd like to introduce you to my web application: [Stack Player](https://stackplayer.vercel.app/),
+ Currently, the application offers basic features to play videos, but I have a vision to enhance it further.
+
+Stack Player is a versatile video player designed to seamlessly play both offline and online videos. It boasts efficient playback capabilities, ensuring smooth video streaming without buffering interruptions.
+
+Additionally, Stack Player is a web application that will be equipped with advanced features. It can generate automated captions, enabling seamless dubbing of videos from English to Hindi. Moreover, the application will offer various tools, including video quality changers, allowing users to enhance their viewing experience. Additionally, users can obtain a summary of the entire video with just a few clicks.
+
+I invite you to contribute to this open-source project during #hacktoberfest. Your contributions can help us improve and expand Stack Player, making it even better for users worldwide.
+
+Best regards,
+
+Arvind Yadav
+GitHub: [https://www.github.com/ayarvind](https://www.github.com/ayarvind)
+LinkedIn: [https://www.linkedin.com/in/ayarwind](https://www.linkedin.com/in/ayarwind)
 
 ![Video Player Website](video-player2.png)
-
-This is a powerful and feature-rich video player website built using React.js, Redux.js, and Firebase. The video player is designed to play local system videos and has the potential to expand its capabilities to play videos from both local and internet sources.
-
-## Features
-
-- **Local and Online Video Playback:** Currently, the video player supports playing local system videos, and in the future, it will be enhanced to play videos from various online sources as well.
-
-- **Unique Feature: Notes for Video Durations:** One of the standout features of this video player is the ability to add notes for specific durations of videos. This allows users to mark important moments or add annotations for easy reference.
-
-- **Intuitive Shortcut Controls:** The video player provides an array of shortcut controls to enhance the user experience. Currently implemented shortcuts include play/pause, full screen, and 10-second backward/forward seek. More shortcuts will be added in the future to streamline navigation and video control.
-
-- **Support for Various Video Formats:** The video player is designed to handle any type of video format, ensuring compatibility and seamless playback for a wide range of media files.
-
-- **Flexible Playback Options:** In the future, the video player aims to introduce additional playback options, such as preferred video quality and playback speed, similar to popular video platforms like YouTube.
-- 
-![Video Player Website](video-player1.png)
-
-- **Drag and Drop Multiple Files:** Users can effortlessly drag and drop multiple video files onto the player, allowing for convenient playback of a playlist or queue of videos, playing them sequentially.Additionally, shortcut buttons is  implemented to play the next and previous videos in the list.
-
-- **Video Filtering and Search:** A future development plan for the video player includes the ability to filter and search through the list of videos, providing efficient video management and organization. 
-
-
-## Bugs and Future Improvements
-
-Currently, the video player may have some minor bugs that are being actively addressed. I am committed to continuously improving the player's performance and stability to provide the best user experience possible.
-
-![Video Player Website](video-player3.png)
-
-Enjoy seamless video playback with our feature-rich video player website!
-
-
-
-
-## Getting Started
-
-To run this project locally, follow these steps:
-
-### Prerequisites
-
-Make sure you have the following software installed on your machine:
-
-- Node.js (version 12 or higher)
-- NPM (Node Package Manager)
-
-### Installation
-
-Clone the repository:
-```bash
-git clone https://github.com/ayarvind/Stack-Player.git
-cd Stack-Player
-npm install
-```
-
-
-
-## Configuration
-
-Before running the project, you need to configure your Firebase credentials. Follow these steps:
-
-1. Create a new Firebase project at [https://console.firebase.google.com/](https://console.firebase.google.com/).
-
-2. Obtain your Firebase configuration credentials.
-
-3. Open the `.env.local` file in the project root directory.
-
-4. Update the placeholder values with your Firebase configuration credentials:
-
-   ```env
-   REACT_APP_FIREBASE_API_KEY=YOUR_API_KEY
-   REACT_APP_FIREBASE_AUTH_DOMAIN=YOUR_AUTH_DOMAIN
-   REACT_APP_FIREBASE_PROJECT_ID=YOUR_PROJECT_ID
-   REACT_APP_FIREBASE_STORAGE_BUCKET=YOUR_STORAGE_BUCKET
-   REACT_APP_FIREBASE_MESSAGING_SENDER_ID=YOUR_SENDER_ID
-   REACT_APP_FIREBASE_APP_ID=YOUR_APP_ID
-    ```
-##Running the Project
-To start the development server and run the project locally, use the following command:
-
-```bash
-    npm run dev
-```
-
-This will start the development server and provide you with a local URL where you can access the video player website in your browser.
-
-Open your browser and visit the following URL: http://localhost:5173.
-
-You should now see the video player website and can start exploring its features.
+#follow this steps to open view code on your system
+1. Fork this repository
+2. Clone the repository  using `git clone https://github.com/ayarvind/Stack-Player.git`
+3. Open the folder in your favourite code editor
+4. Run `npm install` to install all the dependencies
+5. Run `npm run dev` to start the development server
+6. Make changes and create a pull request
 
 
