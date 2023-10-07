@@ -35,11 +35,12 @@
     margin-top:0px;
     height:auto;
     overflow-x:hidden;
-    overflow-y: auto;
+    overflow-y: auto; 
     background-color:white;
-    width:100%;
+
 
     margin-bottom:260px;
+
 
     /* box-shadow: 0px 0px 9px 0px aliceblue; */
 }
