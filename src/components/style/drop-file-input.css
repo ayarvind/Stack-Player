@@ -37,7 +37,7 @@
     overflow-x:hidden;
     overflow-y: auto; 
     background-color:white;
-    width:calc(100% - 260px );
+   width:100%;
     /* box-shadow: 0px 0px 9px 0px aliceblue; */
 }
 
@@ -73,7 +73,9 @@
     height:100px;
 }
 
-
+.drop-file-preview{
+    width:100%;
+}
 
 .drop-file-preview p {
     font-weight: 500;
